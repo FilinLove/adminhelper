@@ -1652,7 +1652,6 @@ local var_0_82 = {
 	vip_fastad = var_0_3.ImBool(false),
 	spectatemenu = var_0_3.ImBool(false),
 	makeleader = var_0_3.ImBool(false),
-	templeader = var_0_3.ImBool(false),
 	response = var_0_3.ImBool(false),
 	scoreboard = var_0_3.ImBool(false),
 	invishud = var_0_3.ImBool(false)
@@ -1821,7 +1820,6 @@ function main()
 				infiniteammo = false,
 				antistun = false,
 				WHtype = "off",
-				templeader = true,
 				statsposY = 427,
 				frcomplete = false,
 				hideears = true,
@@ -2198,13 +2196,11 @@ function main()
 		})
 	end
 
-	if configIni.config.templeader = nil then
-		configIni.config.templeader = true
+	if bindsIni.binds.invisible == nil then
 		bindsIni.binds.invisible = encodeJson({
 			VK_I
 		})
 
-		var_0_2.save(configIni, "AdminHelper/config")
 		var_0_2.save(bindsIni, "AdminHelper/binds")
 	end
 
@@ -2270,7 +2266,6 @@ function main()
 		mutelist = var_0_3.ImBool(configIni.config.mutelist),
 		namewarning = var_0_3.ImBool(configIni.config.namewarning),
 		scoreboard = var_0_3.ImBool(configIni.config.scoreboard),
-		templeader = var_0_3.ImBool(configIni.config.templeader)
 	}
 	buffers = {
 		ahgun_ammo = var_0_3.ImBuffer(256),
@@ -2774,31 +2769,6 @@ function main()
 				end
 
 				acc = 1
-			end
-		end)
-	end)
-	sampRegisterChatCommand("auncuf", function(arg_24_0)
-		lua_thread.create(function()
-			wait(0)
-
-			var1 = string.match(arg_24_0, "(.+)")
-
-			if var1 == nil then
-				sampAddChatMessage("{51fffa}[AdminHelper] {FFFFFF}\xC2\xE2\xE5\xE4\xE8\xF2\xE5: /auncuf [id]", 16776960)
-			else
-				sampAddChatMessage("{51fffa}[AdminHelper] {d5dedd}\xD1\xED\xE8\xEC\xE0\xE5\xEC \xED\xE0\xF0\xF3\xF7\xED\xE8\xEA\xE8 \xF1 " .. var1 .. " id...", 16776960)
-				wait(500)
-				sampSendChat("/freeze " .. var1)
-				wait(1000)
-				sampSendChat("/templeader 4")
-				wait(1000)
-				sampSendChat("/uncuff " .. var1)
-				wait(1000)
-				sampSendChat("/templeader 0")
-				wait(1000)
-				sampSendChat("/unfreeze " .. var1)
-				wait(500)
-				sampAddChatMessage("{51fffa}[AdminHelper] {d5dedd}\xCD\xE0\xF0\xF3\xF7\xED\xE8\xEA\xE8 \xF1\xED\xFF\xF2\xFB.", 16776960)
 			end
 		end)
 	end)
@@ -4469,7 +4439,7 @@ function main()
 			end
 		end
 
-		if var_0_82.menu.v or var_0_82.changename.v or var_0_82.acar.v or var_0_82.ahgun.v or var_0_82.mpwin.v or var_0_82.ppv.v or var_0_82.acheck.v or var_0_82.ipaccounts.v or var_0_82.cheats.v or var_0_82.bans.v or var_0_82.fastreport.v or var_0_82.rtools.v or var_0_82.stats.v or var_0_82.ears.v or var_0_82.vip_fastad.v or var_0_82.spectatemenu.v or var_0_82.mutelist.v or var_0_82.makeleader.v or var_0_82.templeader.v or var_0_82.scoreboard.v then
+		if var_0_82.menu.v or var_0_82.changename.v or var_0_82.acar.v or var_0_82.ahgun.v or var_0_82.mpwin.v or var_0_82.ppv.v or var_0_82.acheck.v or var_0_82.ipaccounts.v or var_0_82.cheats.v or var_0_82.bans.v or var_0_82.fastreport.v or var_0_82.rtools.v or var_0_82.stats.v or var_0_82.ears.v or var_0_82.vip_fastad.v or var_0_82.spectatemenu.v or var_0_82.mutelist.v or var_0_82.makeleader.v or var_0_82.scoreboard.v then
 			var_0_3.ShowCursor = true
 		elseif var_0_82.statshud.v or var_0_82.invishud.v then
 			var_0_3.Process = true
@@ -4490,7 +4460,7 @@ function main()
 			var_0_82.warnhistory.v = false
 		end
 
-		if configIni.config.clickwarp and var_0_82.menu.v == false and var_0_82.changename.v == false and var_0_82.acar.v == false and var_0_82.ahgun.v == false and var_0_82.mpwin.v == false and var_0_82.ppv.v == false and var_0_82.acheck.v == false and var_0_82.ipaccounts.v == false and var_0_82.cheats.v == false and var_0_82.bans.v == false and var_0_82.fastreport.v == false and var_0_82.rtools.v == false and var_0_82.stats.v == false and var_0_82.ears.v == false and var_0_82.vip_fastad.v == false and var_0_82.spectatemenu.v == false and var_0_82.mutelist.v == false and var_0_82.makeleader.v == false and var_0_82.templeader.v == false and var_0_82.scoreboard.v == false then
+		if configIni.config.clickwarp and var_0_82.menu.v == false and var_0_82.changename.v == false and var_0_82.acar.v == false and var_0_82.ahgun.v == false and var_0_82.mpwin.v == false and var_0_82.ppv.v == false and var_0_82.acheck.v == false and var_0_82.ipaccounts.v == false and var_0_82.cheats.v == false and var_0_82.bans.v == false and var_0_82.fastreport.v == false and var_0_82.rtools.v == false and var_0_82.stats.v == false and var_0_82.ears.v == false and var_0_82.vip_fastad.v == false and var_0_82.spectatemenu.v == false and var_0_82.mutelist.v == false and var_0_82.makeleader.v == false and var_0_82.scoreboard.v == false then
 			warptp()
 		end
 
@@ -8884,12 +8854,6 @@ function var_0_3.OnDrawFrame()
 					var_0_2.save(configIni, "AdminHelper/config")
 				end
 
-				if var_0_3.Checkbox(u8("\xD3\xEB\xF3\xF7\xF8\xE5\xED\xED\xEE\xE5 \xEE\xEA\xED\xEE /templeader"), checks.templeader) then
-					configIni.config.templeader = checks.templeader.v
-
-					var_0_2.save(configIni, "AdminHelper/config")
-				end
-
 				if var_0_3.Checkbox(u8("\xC2\xE0\xF0\xED\xE8\xED\xE3\xE8 \xED\xE0 \xED\xE5\xEA\xEE\xF0\xF0\xE5\xEA\xF2\xED\xFB\xE5 \xED\xE8\xEA\xE8 \xF3 \xE8\xE3\xF0\xEE\xEA\xEE\xE2"), checks.namewarning) then
 					configIni.config.namewarning = checks.namewarning.v
 
@@ -13103,15 +13067,6 @@ function var_0_3.OnDrawFrame()
 				if buffers.fastad_repeat.v == "" or buffers.fastad_repeat.v == nil then
 					sampAddChatMessage("{51fffa}[AdminHelper] {d5dedd}\xC2\xE2\xE5\xE4\xE8\xF2\xE5 \xEA\xEE\xEB\xE8\xF7\xE5\xF1\xF2\xE2\xEE \xEF\xEE\xE2\xF2\xEE\xF0\xE5\xED\xE8\xE9 \xEE\xE1\xFA\xFF\xE2\xEB\xE5\xED\xE8\xFF.", -1)
 				end
-
-				if buffers.fastad_text.v ~= "" and buffers.fastad_text.v ~= nil and buffers.fastad_repeat.v ~= "" and buffers.fastad_repeat.v ~= nil then
-					sampSendChat("/templeader 27")
-
-					fastad_repeat = tonumber(buffers.fastad_repeat.v)
-					var_0_21 = true
-
-					sampAddChatMessage("{51fffa}[AdminHelper] {d5dedd}\xC0\xEA\xF2\xE8\xE2\xE8\xF0\xEE\xE2\xE0\xED\xE0 \xEE\xF2\xEF\xF0\xE0\xE2\xEA\xE0 \xEE\xE1\xFA\xFF\xE2\xEB\xE5\xED\xE8\xE9, \xE1\xF3\xE4\xE5\xF2 \xEE\xF2\xEF\xF0\xE0\xE2\xEB\xE5\xED\xEE: " .. fastad_repeat, -1)
-				end
 			end
 
 			var_0_3.PopStyleColor()
@@ -13422,210 +13377,6 @@ function var_0_3.OnDrawFrame()
 		end
 
 		var_0_3.EndChild()
-		var_0_3.End()
-	end
-
-	if var_0_82.templeader.v then
-		local var_121_106, var_121_107 = getScreenResolution()
-		local var_121_108 = var_0_3.ImVec2(200, 0)
-
-		var_0_3.SetNextWindowPos(var_0_3.ImVec2(var_121_106 / 2, var_121_107 / 2), var_0_3.Cond.FirstUseEver, var_0_3.ImVec2(0.5, 0.5))
-		var_0_3.SetNextWindowSize(var_0_3.ImVec2(640, 425), var_0_3.Cond.FirstUseEver)
-		var_0_3.Begin(u8("AdminHelper | Templeader"), var_0_82.templeader, var_0_3.WindowFlags.NoResize + var_0_3.WindowFlags.NoTitleBar)
-		var_0_3.BeginGroup()
-		var_0_3.TextColoredRGB("{5252DF}" .. var_0_46.ICON_FA_CHESS_KING .. u8(" {E0DEF8}TempLeader"))
-		var_0_3.SameLine()
-		var_0_3.SetCursorPos(var_0_3.ImVec2(595, 10))
-		var_0_3.PushStyleVar(var_0_3.StyleVar.FrameRounding, 10)
-
-		if var_0_3.Button(var_0_46.ICON_FA_TIMES .. "##1", var_0_3.ImVec2(30, 0)) then
-			var_0_82.templeader.v = not var_0_82.templeader.v
-		end
-
-		var_0_3.PopStyleVar(1)
-		var_0_3.EndGroup()
-		var_0_3.TextColoredRGB("{5252DF}" .. var_0_46.ICON_FA_CIRCLE .. u8(" {E0DEF8}\xC3\xEE\xF1.\xEE\xF0\xE3\xE0\xED\xE8\xE7\xE0\xF6\xE8\xE8"))
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(3, 78, 168):GetVec4())
-
-		if var_0_3.Button(u8("[ID:4] \xCF\xEE\xEB\xE8\xF6\xE8\xFF \xCB\xEE\xF1-\xD1\xE0\xED\xF2\xEE\xF1"), var_121_108) then
-			sampSendChat("/templeader 4")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(219)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(3, 78, 168):GetVec4())
-
-		if var_0_3.Button(u8("[ID:5] \xCF\xEE\xEB\xE8\xF6\xE8\xFF \xD1\xE0\xED-\xD4\xE8\xE5\xF0\xF0\xEE"), var_121_108) then
-			sampSendChat("/templeader 5")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(423)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(3, 78, 168):GetVec4())
-
-		if var_0_3.Button(u8("[ID:6] \xCF\xEE\xEB\xE8\xF6\xE8\xFF \xCB\xE0\xF1-\xC2\xE5\xED\xF2\xF3\xF0\xE0\xF1"), var_121_108) then
-			sampSendChat("/templeader 6")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(51, 51, 51):GetVec4())
-
-		if var_0_3.Button(u8("[ID:7] \xD4\xC1\xD0"), var_121_108) then
-			sampSendChat("/templeader 7")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(219)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(77, 80, 53):GetVec4())
-
-		if var_0_3.Button(u8("[ID:8] \xD1\xF3\xF5\xEE\xEF\xF3\xF2\xED\xFB\xE5 \xE2\xEE\xE9\xF1\xEA\xE0"), var_121_108) then
-			sampSendChat("/templeader 8")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(423)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(33, 127, 181):GetVec4())
-
-		if var_0_3.Button(u8("[ID:11] \xCF\xF0\xE0\xE2\xE8\xF2\xE5\xEB\xFC\xF1\xF2\xE2\xEE"), var_121_108) then
-			sampSendChat("/templeader 11")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(219, 81, 59):GetVec4())
-
-		if var_0_3.Button(u8("[ID:15] \xC1\xEE\xEB\xFC\xED\xE8\xF6\xE0 \xCB\xEE\xF1-\xD1\xE0\xED\xF2\xEE\xF1"), var_121_108) then
-			sampSendChat("/templeader 15")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(219)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(219, 81, 59):GetVec4())
-
-		if var_0_3.Button(u8("[ID:16] \xC1\xEE\xEB\xFC\xED\xE8\xF6\xE0 \xD1\xE0\xED-\xD4\xE8\xE5\xF0\xF0\xEE"), var_121_108) then
-			sampSendChat("/templeader 16")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(423)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(219, 81, 59):GetVec4())
-
-		if var_0_3.Button(u8("[ID:17] \xC1\xEE\xEB\xFC\xED\xE8\xF6\xE0 \xCB\xE0\xF1-\xC2\xE5\xED\xF2\xF3\xF0\xE0\xF1"), var_121_108) then
-			sampSendChat("/templeader 17")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(227, 91, 0):GetVec4())
-
-		if var_0_3.Button(u8("[ID:27] National Public Radio"), var_121_108) then
-			sampSendChat("/templeader 27")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.TextColoredRGB("{5252DF}" .. var_0_46.ICON_FA_CIRCLE .. u8(" {E0DEF8}\xC1\xE0\xED\xE4\xFB"))
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(0, 153, 0):GetVec4())
-
-		if var_0_3.Button(u8("[ID:18] Groove Street"), var_121_108) then
-			sampSendChat("/templeader 18")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(219)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(188, 0, 235):GetVec4())
-
-		if var_0_3.Button(u8("[ID:19] Ballas"), var_121_108) then
-			sampSendChat("/templeader 19")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(423)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(189, 189, 0):GetVec4())
-
-		if var_0_3.Button(u8("[ID:20] Los Santos Vagos"), var_121_108) then
-			sampSendChat("/templeader 20")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(102, 102, 255):GetVec4())
-
-		if var_0_3.Button(u8("[ID:21] Rifa"), var_121_108) then
-			sampSendChat("/templeader 21")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(219)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(2, 168, 209):GetVec4())
-
-		if var_0_3.Button(u8("[ID:22] Various Los Aztecas"), var_121_108) then
-			sampSendChat("/templeader 22")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.TextColoredRGB("{5252DF}" .. var_0_46.ICON_FA_CIRCLE .. u8(" {E0DEF8}\xCC\xE0\xF4\xE8\xE8"))
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(209, 158, 0):GetVec4())
-
-		if var_0_3.Button(u8("[ID:23] La Cosa Nostra"), var_121_108) then
-			sampSendChat("/templeader 23")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(219)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(161, 170, 173):GetVec4())
-
-		if var_0_3.Button(u8("[ID:24] \xD0\xF3\xF1\xF1\xEA\xE0\xFF \xEC\xE0\xF4\xE8\xFF"), var_121_108) then
-			sampSendChat("/templeader 24")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(423)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(136, 0, 0):GetVec4())
-
-		if var_0_3.Button(u8("[ID:25] Yakuza"), var_121_108) then
-			sampSendChat("/templeader 25")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.TextColoredRGB("{5252DF}" .. var_0_46.ICON_FA_CIRCLE .. u8(" {E0DEF8}\xC1\xE0\xE9\xEA\xE5\xF0\xFB"))
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(53, 37, 39):GetVec4())
-
-		if var_0_3.Button(u8("[ID:12] Bandidos MC"), var_121_108) then
-			sampSendChat("/templeader 12")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(219)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(109, 8, 38):GetVec4())
-
-		if var_0_3.Button(u8("[ID:13] Hells Angels MC"), var_121_108) then
-			sampSendChat("/templeader 13")
-		end
-
-		var_0_3.PopStyleColor()
-		var_0_3.SameLine()
-		var_0_3.SetCursorPosX(423)
-		var_0_3.PushStyleColor(var_0_3.Col.Button, var_0_3.ImColor(58, 88, 75):GetVec4())
-
-		if var_0_3.Button(u8("[ID:14] Warlocks MC"), var_121_108) then
-			sampSendChat("/templeader 14")
-		end
-
-		var_0_3.PopStyleColor()
-
-		if var_0_3.Button(u8("\xD1\xED\xFF\xF2\xFC \xEB\xE8\xE4\xE5\xF0\xEA\xF3"), var_0_3.ImVec2(608, 0)) then
-			sampSendChat("/templeader 0")
-		end
-
 		var_0_3.End()
 	end
 
@@ -20031,17 +19782,6 @@ function var_0_0.onSendCommand(arg_219_0)
 			Time = {}
 		}
 		var_0_82.mutelist.v = true
-	end
-
-	if checks.templeader.v and (arg_219_0:find("/tl") or arg_219_0:find("/templeader")) then
-		local var_219_0 = arg_219_0:match("/tl (%d+)")
-		local var_219_1 = arg_219_0:match("/templeader (%d+)")
-
-		if var_219_0 == nil and var_219_1 == nil then
-			var_0_82.templeader.v = true
-
-			return false
-		end
 	end
 end
 
