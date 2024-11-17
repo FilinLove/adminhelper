@@ -2198,7 +2198,8 @@ function main()
 		})
 	end
 
-	if configIni.config.templeader = true then
+	if configIni.config.templeader = nil then
+		configIni.config.templeader = true
 		bindsIni.binds.invisible = encodeJson({
 			VK_I
 		})
